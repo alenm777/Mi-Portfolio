@@ -1,13 +1,28 @@
 import React, {useState} from 'react';
-import { FaBars, FaTimes, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa"
+import { FaBars, FaTimes, FaGithub, FaLinkedin, FaTelegram, FaWhatsapp} from "react-icons/fa"
 import { BsFillPersonLinesFill } from 'react-icons/bs';
-import { HiOutlineMail } from 'react-icons/hi';
 import Logo from "../assests/logo1.png";
 import {Link} from "react-scroll";
 
 const NavBar = () => {
 const [nav, setNav] = useState(false)
 const handleClick = () => setNav(!nav)
+
+const handleLinkedInClick = () => {
+    window.open("https://www.linkedin.com/in/al%C3%A9n-mu%C3%B1oz-107560231/")
+};
+
+const handleGitHubClick = () => {
+    window.open("https://github.com/alenm777")
+};
+
+const handleWhatsAppClick = () => {
+    window.open("https://bit.ly/AlenMunozDeveloper")
+    };
+
+const handleTelegramClick = () => {
+    window.open("https://t.me/Alen1717")
+};
 
   return (
     <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#400e5f80] text-gray-300'>
@@ -87,35 +102,32 @@ const handleClick = () => setNav(!nav)
 <ul>
     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-blue-600' >
         <a className='flex justify-between items-center w-full text-gray-300'
-         href="/">
+         onClick={handleLinkedInClick}>
             Linkedin <FaLinkedin size={30} />
         </a>
     </li>
 
     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#333333]' >
         <a className='flex justify-between items-center w-full text-gray-300'
-         href="/">
+         onClick={handleGitHubClick}>
             GitHub <FaGithub size={30} />
-        </a>
-    </li>
-    <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#565f69]' >
-        <a className='flex justify-between items-center w-full text-gray-300'
-         href="/">
-           Curriculum <BsFillPersonLinesFill  size={30} />
         </a>
     </li>
     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#45ac60]' >
         <a className='flex justify-between items-center w-full text-gray-300'
-         href="/">
-            Whatsapp <FaWhatsapp size={30} />
+        
+         onClick={handleWhatsAppClick}
+         >
+           WhatsApp <FaWhatsapp size={30} />
         </a>
     </li>
-    <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#c6495c]'>
+    
+    <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#3b8de9]'>
             <a
               className='flex justify-between items-center w-full text-gray-300'
-              href='/'
+              onClick={handleTelegramClick }
             >
-              Email <HiOutlineMail size={30} />
+              Telegram<FaTelegram size={30} />
             </a>
           </li>
 </ul>

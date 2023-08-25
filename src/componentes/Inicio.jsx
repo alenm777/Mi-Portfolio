@@ -1,7 +1,20 @@
 import React from 'react'
 import { HiArrowNarrowRight } from "react-icons/hi"
 
+
 const Inicio = () => {
+
+  const handleDownloadPDF = () => {
+    const urlPdf = "https://drive.google.com/uc?export=download&id=16TYiiqhYyVsMWZii5xpGEZ6BASQxqwQv";
+    const a = document.createElement("a");
+    a.href = urlPdf;
+    a.download = "Alén-Muñoz-CV";
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
   return (
     <div name="inicio" className='w-full h-screen bg-[#0a192f]'>
         
@@ -12,9 +25,11 @@ const Inicio = () => {
 <h2 className='text-4xl sm:text-7xl font-bold text-[#8892b0]'>Soy un Desarrollador <br/> Full Stack.</h2>
 <p className='text-[#8892b0] py-4 max-w-[700px]'> Mi enfoque se centra en la creación y el diseño de experiencias digitales de calidad. Mi objetivo actual consiste en perfeccionar la construcción de aplicaciones web completas, combinando mis habilidades, aspiro a ofrecer soluciones integrales y atractivas.</p>
 <div>
-    <button className='text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-pink-600 hover:border-pink-600'>Vea mi trabajo
+    <button className='text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-pink-600 hover:border-pink-600'>Descargar CV
 <span className='group-hover:rotate-90 duration-300'>
-<HiArrowNarrowRight className='ml-3'/>
+<HiArrowNarrowRight className='ml-3'
+onClick={handleDownloadPDF}
+/>
 </span> 
  </button>
 </div>
