@@ -26,19 +26,19 @@ const About = () => {
       <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-2 text-center py-8">
         
       <div className=" hover:scale-110 duration-500">
-            <img className='w-70 h-60 mx-auto ' src={Diseño} alt="Certificacion" />
+            <img className='w-70 h-60 mx-auto hidden sm:block' src={Diseño} alt="Certificacion" />
           </div>
 
           <div className=' hover:scale-110 duration-500'>
-            <img className='w-70 h-60 mx-auto ' src={JavaScript} alt="Certificacion" /> 
+            <img className='w-70 h-60 mx-auto hidden sm:block ' src={JavaScript} alt="Certificacion" /> 
           </div>
 
           <div className=' hover:scale-110 duration-500'>
-            <img className='w-70 h-60 mx-auto ' src={Frontend} alt="Certificacion" />
+            <img className='w-70 h-60 mx-auto hidden sm:block' src={Frontend} alt="Certificacion" />
           </div>
 
           <div className=' hover:scale-110 duration-500'>
-            <img className='w-70 h-60 mx-auto ' src={Fullstack} alt="Certificacion" />
+            <img className='w-70 h-60 mx-auto hidden sm:block' src={Fullstack} alt="Certificacion" />
           </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const Habilidades = () => {
           {/* Container */}
           <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full '>
               <div>
-                  <p className='text-4xl font-bold inline border-b-4 border-green-600  mx-auto'>Herramientas</p>
+                  <p className='text-4xl font-bold inline border-b-4 border-green-600  mx-auto'>Habilidades</p>
                   <p className='text-1xl font-bold py-6  '>Estas son las tecnologías con las que he trabajado.</p>
               </div>
     
