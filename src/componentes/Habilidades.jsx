@@ -15,10 +15,10 @@ const Habilidades = () => {
     return (
         <div name='habilidades' className='w-full h-screen bg-[#0a192f] text-gray-300'>
           {/* Container */}
-          <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full items-center'>
+          <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full '>
               <div>
                   <p className='text-4xl font-bold inline border-b-4 border-green-600  mx-auto'>Herramientas</p>
-                  <p className='py-4'>// Estas son las tecnologías con las que he trabajado.</p>
+                  <p className='text-1xl font-bold py-6  '>Estas son las tecnologías con las que he trabajado.</p>
               </div>
     
               <div className='w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8'>
