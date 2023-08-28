@@ -43,7 +43,7 @@ const handleTelegramClick = () => {
     </Link>
     </li>
     <li>
-    <Link to="" smooth={true} duration={500} >
+    <Link to="habilidades" smooth={true} duration={500} >
  Habilidades
     </Link>
     </li>
