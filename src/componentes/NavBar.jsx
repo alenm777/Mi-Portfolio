@@ -25,9 +25,9 @@ const handleTelegramClick = () => {
 };
 
   return (
-    <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#400e5f80] text-gray-300'>
+    <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f7d] text-gray-300'>
         <div>
-<img src={Logo} alt='Logo imagen' style={{width: "250px"}} />
+<img src={Logo} alt='Logo imagen' style={{width: "200px"}} />
         </div>
 
         { /* menu  */}

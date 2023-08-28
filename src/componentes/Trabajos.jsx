@@ -25,9 +25,9 @@ const handleWeb = () => {
 
   return (
     <div name='trabajos' className='w-full md:h-screen text-gray-300 bg-[#0a192f]'>
-        <div className='max-w[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full'>
-            <div className='pb-8'>
-                <p className='text-4xl font-bold inline border-b-4 text-gray-300 border-pink-600'>Trabajos</p>
+        <div className='max-w[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full  '>
+            <div className='pb-8 '>
+                <p className='text-4xl font-bold inline border-b-4 text-gray-300 border-red-600'>Trabajos</p>
                 <p className=' py-6'>// Vea algunos de mis trabajos</p>
             </div>
 
@@ -40,8 +40,8 @@ const handleWeb = () => {
     >
 
         { /* Hover Effect */}
-        <div className='opacity-0 group-hover:opacity-100'>
-               <span className='text-2xl font-bold text-white tracking-wider'>
+        <div className='opacity-0 group-hover:opacity-100' >
+               <span className='text-2xl font-bold text-white tracking-wider  items-center'>
 Crypto X App 
                </span>
                 <div className='pt-8 text-center '>
