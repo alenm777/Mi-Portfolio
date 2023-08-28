@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { FaBars, FaTimes, FaGithub, FaLinkedin, FaTelegram, FaWhatsapp} from "react-icons/fa"
-import { BsFillPersonLinesFill } from 'react-icons/bs';
-import Logo from "../assests/logo1.png";
+import Logo from "../assests/logo.png";
 import {Link} from "react-scroll";
 
 const NavBar = () => {
