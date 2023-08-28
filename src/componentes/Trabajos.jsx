@@ -25,7 +25,7 @@ const handleWeb = () => {
 
   return (
     <div name='trabajos' className='w-full md:h-screen text-gray-300 bg-[#0a192f]'>
-        <div className='max-w[100px] mx-auto p-4 flex flex-col justify-center w-full h-full   '>
+        <div className='max-w[100px] mx-auto p-4 flex flex-col justify-center w-full h-full pt-20'>
             <div className='sm:text-center pb-8 pl-4 mx-auto'>
                 <p className='text-4xl font-bold inline border-b-4 text-gray-300 border-red-600 '>Trabajos</p>
                 <p className=' text-1xl font-bold py-6'> Vea mis trabajos</p>
