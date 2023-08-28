@@ -59,13 +59,13 @@ const handleTelegramClick = () => {
     </li>
 </ul>
 
-{ /* Hamburger */}
+
 <div onClick={handleClick} className='md:hidden z-10'>
    {!nav ? <FaBars /> : <FaTimes />}
 </div>
 
 
-{/* Mobil menu */}
+
 <ul className={!nav ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-[#0c0f45] flex flex-col justify-center items-center'}>
 
 <li className='py-6 text-4xl'>
@@ -96,7 +96,7 @@ const handleTelegramClick = () => {
 </ul>
 
 
-{/* Social icons  */}
+
 <div className='hidden lg:flex fixed flex-col top-[35%] left-0'>
 <ul>
     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-blue-600' >

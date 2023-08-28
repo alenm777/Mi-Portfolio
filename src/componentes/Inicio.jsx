@@ -5,7 +5,7 @@ import { HiArrowNarrowRight } from "react-icons/hi"
 const Inicio = () => {
 
   const handleDownloadPDF = () => {
-    const urlPdf = "https://drive.google.com/uc?export=download&id=16TYiiqhYyVsMWZii5xpGEZ6BASQxqwQv";
+    const urlPdf = "https://drive.google.com/uc?export=download&id=1ojO2DRvoq7Yxrh_VZ1t5UbmAmbyTz8Fx";
     const a = document.createElement("a");
     a.href = urlPdf;
     a.download = "Alén-Muñoz-CV";
@@ -15,10 +15,12 @@ const Inicio = () => {
     document.body.removeChild(a);
   };
 
+ 
+
   return (
     <div name="inicio" className='w-full h-screen bg-[#0a192f]'>
         
-         {/* Container */}
+       
          <div className='max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full'>
 <p className='text-pink-600 text-2xl ' > Hola, mi nombre es</p>
 <h1 className='text-4xl sm:text-7xl font-bold text-[#ccd6f6] '>Alén Muñoz</h1>
