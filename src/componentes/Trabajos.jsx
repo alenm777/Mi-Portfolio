@@ -2,6 +2,7 @@ import React from 'react'
 import Crypto from '../assests/crypto-x.jpeg';
 import SportP from '../assests/Sport-Planet.jpg';
 import Game from "../assests/Gameratings.jpg";
+import Cripto2 from  '../assests/Cripto2.0.jpg'
 
 
 const Trabajos = () => {
@@ -32,6 +33,15 @@ const handleCodigoTres = () => {
         window.open("https://github.com/alenm777/GameRatings")
     };
 
+    const handleWebFour = () => {
+        window.open("https://criptoapp-8d713.web.app/")
+    };
+
+    const handleCodigoFour = () => {
+        window.open("https://github.com/alenm777/Criptoweb")
+    };
+
+
 
   return (
     <div name='trabajos' className='w-full md:h-screen text-gray-300 bg-[#0a192f]'>
@@ -41,6 +51,7 @@ const handleCodigoTres = () => {
                 <p className=' text-1xl font-bold py-6'> Vea mis trabajos</p>
             </div>   
 <div className='grid sm:grid-cols-2 md:grid-cols-2 gap-4'>
+
     <div
     style={{backgroundImage: `url(${Crypto})`}}  className='shadow-lg shadow-[#040c16] group container rounder-md flex justify-center items-center mx-auto content-div'
     >
@@ -90,6 +101,22 @@ Gameratings
             </div>
         </div>
       
+        <div
+    style={{backgroundImage: `url(${Cripto2})`}}  className='shadow-lg shadow-[#040c16] group container rounder-md flex justify-center items-center mx-auto content-div'
+    >
+        <div className='opacity-0 group-hover:opacity-100' >
+               <span className='text-2xl font-bold text-white tracking-wider  items-center'>
+Cripto 2.0
+               </span>
+                <div className='pt-8 text-center '>
+    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleWebFour} >Sitio Web</button>
+
+    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleCodigoFour} >Codigo</button>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>
 </div>
