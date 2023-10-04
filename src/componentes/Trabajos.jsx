@@ -1,19 +1,20 @@
 import React from 'react'
-import Crypto from '../assests/crypto-x.jpeg';
+import Quiz from '../assests/quiz.png';
 import SportP from '../assests/Sport-Planet.jpg';
 import Game from "../assests/Gameratings.jpg";
 import Cripto2 from  '../assests/Cripto2.0.jpg'
+
 
 
 const Trabajos = () => {
 
 
 const handleWeb = () => {
-        window.open("https://cryptoxapp.netlify.app/")
+        window.open("https://quiz-acierta.vercel.app/")
     };
     
     const handleCodigo = () => {
-        window.open("https://github.com/alenm777/cryptoapp")
+        window.open("https://github.com/alenm777/QuizAcierta")
     };
 
     
@@ -43,6 +44,8 @@ const handleCodigoTres = () => {
 
 
 
+
+
   return (
     <div name='trabajos' className='w-full md:h-screen text-gray-300 bg-[#0a192f]'>
         <div className='max-w[100px] mx-auto p-4 flex flex-col justify-center w-full h-full pt-20'>
@@ -53,11 +56,11 @@ const handleCodigoTres = () => {
 <div className='grid sm:grid-cols-2 md:grid-cols-2 gap-4'>
 
     <div
-    style={{backgroundImage: `url(${Crypto})`}}  className='shadow-lg shadow-[#040c16] group container rounder-md flex justify-center items-center mx-auto content-div'
+    style={{backgroundImage: `url(${Quiz})`}}  className='shadow-lg shadow-[#040c16] group container rounder-md flex justify-center items-center mx-auto content-div'
     >
         <div className='opacity-0 group-hover:opacity-100' >
                <span className='text-2xl font-bold text-white tracking-wider  items-center'>
-Crypto X App 
+QuizAcierta
                </span>
                 <div className='pt-8 text-center '>
     <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleWeb} >Sitio Web</button>
