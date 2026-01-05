@@ -1,41 +1,37 @@
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contacto = () => {
-  const ref = useRef();
-  const [errors, setErrors] = useState({});
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [success, setSuccess] = useState(false);
+  const ref = useRef()
+
+  const [errors, setErrors] = useState({})
+  const [sending, setSending] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
   const validateFields = () => {
-    const newErrors = {};
+    const newErrors = {}
 
-    if (name.trim() === '') {
-      newErrors.name = 'Este campo es obligatorio';
-    }
-
-    if (email.trim() === '') {
-      newErrors.email = 'Este campo es obligatorio';
+    if (!name.trim()) newErrors.name = 'Ingrese su nombre'
+    if (!email.trim()) {
+      newErrors.email = 'Ingrese su email'
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
-      newErrors.email = 'Ingrese una dirección de correo electrónico válida';
+      newErrors.email = 'Email inválido'
     }
+    if (!message.trim()) newErrors.message = 'Ingrese un mensaje'
 
-    if (message.trim() === '') {
-      newErrors.message = 'Este campo es obligatorio';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    if (!validateFields()) return
 
-    if (!validateFields()) {
-      return;
-    }
+    setSending(true)
 
     emailjs
       .sendForm(
@@ -44,65 +40,105 @@ const Contacto = () => {
         ref.current,
         'R9iNUA8LdZ2jS1A6e'
       )
-      .then((result) => {
-        setSuccess(true);
-        setTimeout(() => {
-          setSuccess(false);
-          ref.current.reset();
-          setName('');
-          setEmail('');
-          setMessage('');
-          setErrors({});
-        }, 3000);
+      .then(() => {
+        setSuccess(true)
+        setSending(false)
+        ref.current.reset()
+        setName('')
+        setEmail('')
+        setMessage('')
+        setErrors({})
+
+        setTimeout(() => setSuccess(false), 4000)
       })
-      .catch((error) => {
-        setSuccess(false);
-        setErrors({});
-      });
-  };
+      .catch(() => {
+        setSending(false)
+      })
+  }
 
   return (
-    <div name='contacto' className='w-full h-screen bg-[#0a192f] flex justify-center p-4'>
-      <form ref={ref} onSubmit={handleSubmit} className='flex flex-col max-w-[600px] w-full pt-20 '>
-        <div className='pb-8'>
-          <p className='text-4xl font-bold inline border-b-4 border-orange-600 text-gray-300'>Contacto</p>
-          <p className='text-gray-300 text-1xl font-bold py-6'>Complete el siguiente formulario y me pondré en contacto con usted </p>
+    <div name='contacto' className='w-full min-h-screen bg-[#0a192f] flex justify-center px-6'>
+      <form
+        ref={ref}
+        onSubmit={handleSubmit}
+        className='flex flex-col max-w-[600px] w-full pt-24'
+      >
+        {/* Header */}
+        <div className='pb-10 text-center'>
+          <h2 className='text-4xl font-bold inline border-b-4 border-orange-600 text-gray-300'>
+            Contacto
+          </h2>
+          <p className='text-gray-400 mt-6'>
+            ¿Tenés un proyecto, una propuesta laboral o necesitás un desarrollador web?
+            <br />
+            Escribime y te respondo a la brevedad.
+          </p>
         </div>
-        <input className='bg-[#ccd6f6] p-2' type="text" placeholder='Nombre'
-          name="name" value={name} onChange={e => setName(e.target.value)} />
-        {errors.name && <span className="text-red-500 text-sm mb-2">{errors.name}</span>}
 
-        <input className='my-4 p-2 bg-[#ccd6f6] ' type="email" placeholder='Email'
-          name="email" value={email} onChange={e => setEmail(e.target.value)} />
-        {errors.email && <span className="text-red-500 text-sm mb-2">{errors.email}</span>}
+        {/* Nombre */}
+        <input
+          className='bg-[#ccd6f6] p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600'
+          type="text"
+          placeholder='Nombre'
+          name="name"
+          value={name}
+          onChange={e => setName(e.target.value)}
+        />
+        {errors.name && <span className="text-red-500 text-sm mt-1">{errors.name}</span>}
 
-        <textarea className='bg-[#ccd6f6] p-2' name="message" rows="10" placeholder='Mensaje' value={message} onChange={e => setMessage(e.target.value)} />
-        {errors.message && <span className="text-red-500 text-sm mb-2">{errors.message}</span>}
+        {/* Email */}
+        <input
+          className='my-4 p-3 bg-[#ccd6f6] rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600'
+          type="email"
+          placeholder='Email'
+          name="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
 
+        {/* Mensaje */}
+        <textarea
+          className='bg-[#ccd6f6] p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600'
+          name="message"
+          rows="6"
+          placeholder='Contame brevemente tu idea o propuesta'
+          value={message}
+          onChange={e => setMessage(e.target.value)}
+        />
+        {errors.message && <span className="text-red-500 text-sm mt-1">{errors.message}</span>}
+
+        {/* Botón */}
         <button
-  type="submit"
-  className='text-white border-2 hover:bg-pink-600 hover:border-pink-600 px-4 py-3 my-8 mx-auto flex items-center'
-  disabled={!Object.keys(errors).length === 0}
->
-          Trabajemos Juntos
-          </button>
-        <p className='text-gray-300 py-4 text-center text-lg' >
-          {success && "Su mensaje ha sido enviado. Me pondré en contacto con usted a la brevedad"}
-        </p>
+          type="submit"
+          disabled={sending}
+          className={`text-white border-2 px-6 py-3 my-8 mx-auto rounded-lg transition duration-300
+            ${sending
+              ? 'opacity-60 cursor-not-allowed'
+              : 'hover:bg-pink-600 hover:border-pink-600'
+            }`}
+        >
+          {sending ? 'Enviando...' : 'Trabajemos juntos'}
+        </button>
+
+        {/* Success */}
         {success && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-green-500 mx-auto items-center"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-          </svg>
+          <div className='text-center text-green-400'>
+            <p>Mensaje enviado correctamente. Te responderé pronto.</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-7 w-7 mx-auto mt-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
         )}
       </form>
     </div>
   )
 }
 
-export default Contacto;
+export default Contacto

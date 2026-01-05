@@ -1,130 +1,99 @@
 import React from 'react'
-import Quiz from '../assests/quiz.png';
-import SportP from '../assests/Sport-Planet.jpg';
-import Game from "../assests/Gameratings.jpg";
-import Cripto2 from  '../assests/Cripto2.0.jpg'
-
-
+import Quiz from '../assests/quiz.png'
+import RegistroGastos from '../assests/registro-gastos.png'
+import Hotel from '../assests/hotelbediax.png'
+import Cripto2 from '../assests/Cripto2.0.jpg'
 
 const Trabajos = () => {
 
+  const open = (url) => window.open(url, "_blank")
 
-const handleWeb = () => {
-        window.open("https://quiz-acierta.vercel.app/")
-    };
-    
-    const handleCodigo = () => {
-        window.open("https://github.com/alenm777/QuizAcierta")
-    };
-
-    
-    const handleWebDos = () => {
-        window.open("https://sport-planet.vercel.app/")
-    };
-
-  const handleCodigoDos = () => {
-        window.open("https://github.com/alenm777/SportPlanet/")
-    };
-
-    const handleWebTres = () => {
-        window.open("https://gameratings.vercel.app/")
-    };
-
-const handleCodigoTres = () => {
-        window.open("https://github.com/alenm777/GameRatings")
-    };
-
-    const handleWebFour = () => {
-        window.open("https://criptoapp-8d713.web.app/")
-    };
-
-    const handleCodigoFour = () => {
-        window.open("https://github.com/alenm777/Criptoweb")
-    };
-
-
-
-
+  const projects = [
+    {
+      title: "QuizAcierta",
+      img: Quiz,
+      web: "https://quiz-acierta.vercel.app/",
+      code: "https://github.com/alenm777/QuizAcierta",
+      desc: "Juego interactivo desarrollado en React"
+    },
+    {
+      title: "Registro de Gastos",
+      img: RegistroGastos,
+      web: "https://registro-de-gastos.vercel.app",
+      code: "https://github.com/alenm777/registro-de-gastos",
+      desc: "Aplicación para registrar ingresos y gastos con autenticación y dashboard"
+    },
+    {
+      title: "HotelBediaX",
+      img: Hotel,
+      web: "https://hotelbediax.vercel.app",
+      code: "https://github.com/alenm777/hotelbediax",
+      desc: "Sistema de gestión hotelera con panel administrativo"
+    },
+    {
+      title: "Cripto 2.0",
+      img: Cripto2,
+      web: "https://criptoapp-8d713.web.app/",
+      code: "https://github.com/alenm777/Criptoweb",
+      desc: "Aplicación para consultar precios de criptomonedas en tiempo real"
+    }
+  ]
 
   return (
-    <div name='trabajos' className='w-full md:h-screen text-gray-300 bg-[#0a192f]'>
-        <div className='max-w[100px] mx-auto p-4 flex flex-col justify-center w-full h-full pt-20'>
-            <div className='sm:text-center pb-8 pl-4 mx-auto'>
-                <p className='text-4xl font-bold inline border-b-4 text-gray-300 border-red-600 '>Trabajos</p>
-                <p className=' text-1xl font-bold py-6'> Vea mis trabajos</p>
-            </div>   
-<div className='grid sm:grid-cols-2 md:grid-cols-2 gap-4'>
+    <div name='trabajos' className='w-full min-h-screen bg-[#0a192f] text-gray-300 py-20'>
+      <div className='max-w-[1100px] mx-auto px-6'>
 
-    <div
-    style={{backgroundImage: `url(${Quiz})`}}  className='shadow-lg shadow-[#040c16] group container rounder-md flex justify-center items-center mx-auto content-div'
-    >
-        <div className='opacity-0 group-hover:opacity-100' >
-               <span className='text-2xl font-bold text-white tracking-wider  items-center'>
-QuizAcierta
-               </span>
-                <div className='pt-8 text-center '>
-    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleWeb} >Sitio Web</button>
-
-    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleCodigo} >Codigo</button>
-                </div>
-            </div>
+        {/* Header */}
+        <div className='text-center mb-12'>
+          <h2 className='text-4xl font-bold inline border-b-4 border-red-600'>
+            Proyectos
+          </h2>
+          <p className='mt-6 text-gray-400'>
+            Algunos de los proyectos que desarrollé de punta a punta
+          </p>
         </div>
 
-        <div
-    style={{backgroundImage: `url(${SportP})`}}  className='shadow-lg shadow-[#040c16] group container rounder-md flex justify-center items-center mx-auto content-div'
-    >
-     
-        <div className='opacity-0 group-hover:opacity-100'>
-               <span className='text-2xl font-bold text-white tracking-wider'>
-   Sport-Planet
-               </span>
-                <div className='pt-8 text-center '>
+        {/* Grid */}
+        <div className='grid sm:grid-cols-2 gap-8'>
+          {projects.map((p, i) => (
+            <div
+              key={i}
+              style={{ backgroundImage: `url(${p.img})` }}
+              className='relative h-[260px] rounded-xl bg-cover bg-center shadow-lg overflow-hidden group'
+            >
+              {/* Overlay */}
+              <div className='absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-center px-6'>
+                <h3 className='text-2xl font-bold mb-3'>{p.title}</h3>
 
-    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleWebDos}>Sitio Web
-    </button>
+                <p className='text-sm text-gray-300 mb-6'>
+                  {p.desc}
+                </p>
 
-    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleCodigoDos}>Codigo
-    </button>
+                <div className='flex'>
+                  <button
+                    onClick={() => open(p.web)}
+                    className='bg-white text-gray-800 px-5 py-2 rounded-lg font-semibold 
+                               mx-2 hover:bg-pink-600 hover:text-white transition duration-300'
+                  >
+                    Sitio Web
+                  </button>
 
+                  <button
+                    onClick={() => open(p.code)}
+                    className='bg-white text-gray-800 px-5 py-2 rounded-lg font-semibold 
+                               mx-2 hover:bg-pink-600 hover:text-white transition duration-300'
+                  >
+                    Código
+                  </button>
                 </div>
+              </div>
             </div>
-        </div>
- 
-    <div
-    style={{backgroundImage: `url(${Game})`}}  className='shadow-lg shadow-[#040c16] group container rounder-md flex justify-center items-center mx-auto content-div'
-    >
-        <div className='opacity-0 group-hover:opacity-100'>
-               <span className='text-2xl font-bold text-white tracking-wider'>
-Gameratings
-               </span>
-                <div className='pt-8 text-center '>
-    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleWebTres}>Sitio Web</button>
-    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleCodigoTres}>Codigo</button>
-                </div>
-            </div>
-        </div>
-      
-        <div
-    style={{backgroundImage: `url(${Cripto2})`}}  className='shadow-lg shadow-[#040c16] group container rounder-md flex justify-center items-center mx-auto content-div'
-    >
-        <div className='opacity-0 group-hover:opacity-100' >
-               <span className='text-2xl font-bold text-white tracking-wider  items-center'>
-Cripto 2.0
-               </span>
-                <div className='pt-8 text-center '>
-    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleWebFour} >Sitio Web</button>
-
-    <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg' onClick={handleCodigoFour} >Codigo</button>
-                </div>
-            </div>
+          ))}
         </div>
 
-
+      </div>
     </div>
-</div>
-</div>
-
   )
 }
 
-export default Trabajos;
+export default Trabajos
